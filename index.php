@@ -1,32 +1,56 @@
-<!--
-  //--------------------------------------------------------------------------------//
-  //                                                                                //
-  // Wirecard Checkout Toolkit light                                                //
-  //                                                                                //
-  // Copyright (c) 2013                                                             //
-  // Wirecard Central Eastern Europe GmbH                                           //
-  // www.wirecard.at                                                                //
-  //                                                                                //
-  // THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY         //
-  // KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE            //
-  // IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A                     //
-  // PARTICULAR PURPOSE.                                                            //
-  //                                                                                //
-  //--------------------------------------------------------------------------------//
-  // THIS EXAMPLE IS FOR DEMONSTRATION PURPOSES ONLY!                               //
-  //--------------------------------------------------------------------------------//
-  // Please read the integration documentation before modifying this file.          //
-  //--------------------------------------------------------------------------------//
--->
+<?php 
+/**
+ * QPay Checkout Toolkit Light
+ * - Terms of use can be found under
+ * https://guides.qenta.com/prerequisites
+ * - License can be found under:
+ * https://github.com/qenta-cee/qcp-backend-example-php/blob/master/LICENSE.
+ * 
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ * 
+ * Please read the integration documentation before modifying this file!             
+ */
+
+require_once("includes/config.inc.php");
+?>
 <html>
   <head>
-    <title>Wirecard Checkout Toolkit light</title>
+    <title>QPay Checkout Toolkit light</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Wirecard Checkout Toolkit light</h1>
-    <p>This is a very simple example of the Wirecard Checkout Toolkit light for demonstration purposes only.</p>
+    <h1>QPay Checkout Toolkit light</h1>
+    <p>This is a very simple example of the QPay Checkout Toolkit light for demonstration purposes only.</p>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <button onclick="toggleConfigData()">Toggle Configuration Data</button>
+    <table id="config-data" border="1" bordercolor="lightgray" cellpadding="10" cellspacing="0" >
+      <tr>
+          <th colspan="2" align="left">Configuration</th>
+      </tr>
+      <tr>
+        <td align="right">Customer id:</td>
+        <td><?= $customerId ?></td>
+      </tr>
+      <tr>
+        <td align="right">Shop id:</td>
+        <td><?= $shopId ?></td>
+      </tr>
+      <tr>
+        <td align="right">Toolkit password:</td>
+        <td><?= $toolkitPassword ?></td>
+      </tr>
+      <tr>
+        <td align="right">Secret:</td>
+        <td><?= $secret ?></td>
+      </tr>
+      <tr>
+        <td align="right">Endpoint:</td>
+        <td><?= $URL_QENTA_CHECKOUT_TOOLKIT_LIGHT ?></td>
+      </tr>
+    </table>
     <form action="command.php" method="post"">
       <table border="1" bordercolor="lightgray" cellpadding="10" cellspacing="0">
         <tr>
@@ -316,4 +340,14 @@
     </form>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   </body>
+  <script>
+    function toggleConfigData(){
+      var configTable = document.getElementById('config-data');
+      if(window.getComputedStyle(configTable).display == 'table'){
+        configTable.style.display = 'none';
+      }else{
+        configTable.style.display = 'table';
+      }
+    }
+  </script>
 </html>

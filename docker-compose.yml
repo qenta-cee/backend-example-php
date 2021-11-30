@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app:
+    container_name: qcp_backend_example_php
+    image: php:7-apache
+    ports:
+      - "8000:80"
+      - "3443:443"
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      - QCP_BACKEND_ENDPOINT=${QCP_BACKEND_ENDPOINT}
+      - QCP_BACKEND_CUSTOMER_PASSWORD=${QCP_BACKEND_CUSTOMER_PASSWORD}
+      - QCP_BACKEND_CUSTOMER_ID=${QCP_BACKEND_CUSTOMER_ID}
+      - QCP_BACKEND_SHOP_ID=${QCP_BACKEND_SHOP_ID}
+      - QCP_BACKEND_SHOP_SECRET=${QCP_BACKEND_SHOP_SECRET}

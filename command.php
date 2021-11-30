@@ -1,22 +1,18 @@
 <?php
-  //--------------------------------------------------------------------------------//
-  //                                                                                //
-  // Wirecard Checkout Toolkit light                                                //
-  //                                                                                //
-  // Copyright (c) 2013                                                             //
-  // Wirecard Central Eastern Europe GmbH                                           //
-  // www.wirecard.at                                                                //
-  //                                                                                //
-  // THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY         //
-  // KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE            //
-  // IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A                     //
-  // PARTICULAR PURPOSE.                                                            //
-  //                                                                                //
-  //--------------------------------------------------------------------------------//
-  // THIS EXAMPLE IS FOR DEMONSTRATION PURPOSES ONLY!                               //
-  //--------------------------------------------------------------------------------//
-  // Please read the integration documentation before modifying this file.          //
-  //--------------------------------------------------------------------------------//
+/**
+ * QPay Checkout Toolkit Light
+ * - Terms of use can be found under
+ * https://guides.qenta.com/prerequisites
+ * - License can be found under:
+ * https://github.com/qenta-cee/qcp-backend-example-php/blob/master/LICENSE.
+ * 
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ * 
+ * Please read the integration documentation before modifying this file!             
+ */
 
   // loads the merchant specific parameters from the config file
 	require_once("includes/config.inc.php");
@@ -89,12 +85,12 @@
   $requestParameters = "";
   
   if ($command == "approveReversal") {
-    $requestParameters = array ( $customerId, $toolkitPassword,
+    $requestParameters = array ( $customerId, $shopId, $toolkitPassword,
                                   $secret, $command,
                                   $language, $orderNumber );
   }
   if ($command == "deposit") {
-    $requestParameters = array ( $customerId, $toolkitPassword,
+    $requestParameters = array ( $customerId, $shopId, $toolkitPassword,
                                   $secret, $command,
                                   $language, $orderNumber,
                                   $amount, $currency,
@@ -105,25 +101,25 @@
                                   $basketItem1UnitTaxRate);
   }
   if ($command == "depositReversal") {
-    $requestParameters = array ($customerId, $toolkitPassword,
+    $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                  $secret, $command,
                                  $language, $orderNumber,
                                  $paymentNumber);
   }
   if ($command == "getOrderDetails") {
-    $requestParameters = array ($customerId, $toolkitPassword,
+    $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                  $secret, $command,
                                  $language, $orderNumber);
   }
   if ($command == "recurPayment") {
-    $requestParameters = array ($customerId, $toolkitPassword,
+    $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                  $secret, $command,
                                  $language, $orderNumber,
                                  $sourceOrderNumber, $orderDescription,
                                  $amount, $currency);
   }
   if ($command == "refund") {
-    $requestParameters = array ($customerId, $toolkitPassword,
+    $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                  $secret, $command,
                                  $language, $orderNumber,
                                  $amount, $currency,
@@ -134,7 +130,7 @@
                                  $basketItem1UnitTaxRate);
   }
   if ($command == "refundReversal") {
-    $requestParameters = array ($customerId, $toolkitPassword,
+    $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                  $secret, $command,
                                  $language, $orderNumber,
                                  $creditNumber);
@@ -143,7 +139,7 @@
     if ($fundTransferType == "SKRILLWALLET") {
     //  customerId, (shopId), toolkitPassword, secret, command, language, (orderNumber),
     // (creditNumber), orderDescription, amount, currency, (orderReference), customerStatement, fundTransferType and consumerEmail
-      $requestParameters = array ($customerId, $toolkitPassword,
+      $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                    $secret, $command,
                                    $language,
                                    $orderDescription,
@@ -153,7 +149,7 @@
                                    $consumerEmail);
     }
     if ($fundTransferType == "EXISTINGORDER") {
-      $requestParameters = array ($customerId, $toolkitPassword,
+      $requestParameters = array ($customerId, $shopId, $toolkitPassword,
                                    $secret, $command,
                                    $language, 
                                    $orderDescription,
@@ -170,6 +166,7 @@
   // which are required for all commands
   $request = array(
                "customerId" => $customerId,
+               "shopId" => $shopId,
                "toolkitPassword" => $toolkitPassword,
                "command" => $command,
                "language" => $language,
@@ -197,16 +194,16 @@
   if ($basketItem1UnitTaxAmount != "") $request = array_merge($request, array("basketItem1UnitTaxAmount" => $basketItem1UnitTaxAmount));
   if ($basketItem1UnitTaxRate != "") $request = array_merge($request, array("basketItem1UnitTaxRate" => $basketItem1UnitTaxRate));
 
-  $response = serverToServerRequest($URL_WIRECARD_CHECKOUT_TOOLKIT_LIGHT, $request);
+  $response = serverToServerRequest($URL_QENTA_CHECKOUT_TOOLKIT_LIGHT, $request);
 ?>
 <html>
   <head>
-    <title>Wirecard Checkout Toolkit light</title>
+    <title>QPay Checkout Toolkit light</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Wirecard Checkout Toolkit light</h1>
-    <p>This is a very simple example of the Wirecard Checkout Toolkit light for demonstration purposes only.</p>
+    <h1>QPay Checkout Toolkit light</h1>
+    <p>This is a very simple example of the QPay Checkout Toolkit light for demonstration purposes only.</p>
    <?php
       printRequestParameters($request);
       printResponseParameters($response);

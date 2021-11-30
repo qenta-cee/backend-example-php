@@ -1,23 +1,17 @@
 /**
-  //--------------------------------------------------------------------------------//
-  //                                                                                //
-  // Wirecard Checkout Toolkit light                                                //
-  //                                                                                //
-  // Copyright (c) 2013                                                             //
-  // Wirecard Central Eastern Europe GmbH                                           //
-  // www.wirecard.at                                                                //
-  //                                                                                //
-  // THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY         //
-  // KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE            //
-  // IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A                     //
-  // PARTICULAR PURPOSE.                                                            //
-  //                                                                                //
-  //--------------------------------------------------------------------------------//
-  // THIS EXAMPLE IS FOR DEMONSTRATION PURPOSES ONLY!                               //
-  //--------------------------------------------------------------------------------//
-  // Please read the integration documentation before modifying this file.          //
-  //--------------------------------------------------------------------------------//
-*/
+ * QPay Checkout Toolkit Light
+ * - Terms of use can be found under
+ * https://guides.qenta.com/prerequisites
+ * - License can be found under:
+ * https://github.com/qenta-cee/qcp-backend-example-php/blob/master/LICENSE.
+ * 
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ * 
+ * Please read the integration documentation before modifying this file!             
+ */
 
 body { 
 		margin:         0;
@@ -37,3 +31,7 @@ td {
 		font-size:      0.8em;
 	}
 	
+#config-data{
+	margin-bottom: 10px;
+	display:none;
+}

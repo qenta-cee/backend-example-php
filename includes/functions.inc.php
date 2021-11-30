@@ -1,15 +1,18 @@
 <?php
-//--------------------------------------------------------------------------------//
-//                                                                                //
-// Wirecard Central Eastern Europe GmbH                                           //
-// www.wirecard.at                                                                //
-//                                                                                //
-// THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY         //
-// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE            //
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A                     //
-// PARTICULAR PURPOSE.                                                            //
-//                                                                                //
-//--------------------------------------------------------------------------------//
+/**
+ * QPay Checkout Toolkit Light
+ * - Terms of use can be found under
+ * https://guides.qenta.com/prerequisites
+ * - License can be found under:
+ * https://github.com/qenta-cee/qcp-backend-example-php/blob/master/LICENSE.
+ * 
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ * PARTICULAR PURPOSE.
+ * 
+ * Please read the integration documentation before modifying this file!             
+ */
 
 // Returns the protocol, servername, port and path for the current page.
 function getBaseUrl()
@@ -85,7 +88,7 @@ function printRequestParameters($params) {
 //--------------------------------------------------------------------------------//
 
 function printResponseParameters($response) {
-    echo "<p>The Wirecard Checkout Platform returned the following values after executing the command:</p>";
+    echo "<p>The QPay Checkout Platform returned the following values after executing the command:</p>";
     echo '<table border="1" bordercolor="lightgray" cellpadding="10" cellspacing="0">';
     foreach (explode('&', $response) as $keyvalue) {
         $param = explode('=', $keyvalue);
