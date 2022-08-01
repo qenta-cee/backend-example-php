@@ -4,7 +4,7 @@ services:
     container_name: qcp_backend_example_php
     image: php:7-apache
     ports:
-      - "8000:80"
+      - "8002:80"
       - "3443:443"
     volumes:
       - ./:/var/www/html/
