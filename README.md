@@ -5,7 +5,7 @@
 
 This example demonstrates the usage of the backend operations and provides a basis for integration into PHP-based systems.
 
-Our [Online Guides](https://guides.qenta.com/ "Online Guides") provide an in depth description of the [backend operations](https://guides.qenta.com/backend-operations/ "backend operations") for Qenta.
+Our [Online Guides](https://guides.qenta.com/ "Online Guides") provide an in depth description of the [backend operations](https://guides.qenta.com/backend/backend-operations/ "backend operations") for Qenta.
 
 ## Installation
 
